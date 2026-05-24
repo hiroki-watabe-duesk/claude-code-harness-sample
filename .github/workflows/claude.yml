@@ -52,8 +52,8 @@ jobs:
       - name: Run Issue to PR
         uses: anthropics/claude-code-action@v1
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          # claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: |
             REPO: ${{ github.repository }}
             ISSUE NUMBER: ${{ github.event.issue.number }}
@@ -64,4 +64,4 @@ jobs:
 
           claude_args: |
             --model ${{ env.CLAUDE_MODEL }}
-            --allowedTools "Read,Write,Edit,WebSearch,WebFetch,Bash(npm view:*),mcp__github__get_issue,mcp__github__add_issue_comment,mcp__github__push_files,mcp__github__create_branch,mcp__github__create_pull_request,mcp__github__update_pull_request"
+            --allowed-tools "Read,Write,Edit,Bash(gh:*),Bash(git:*),Bash(npm:*)"
