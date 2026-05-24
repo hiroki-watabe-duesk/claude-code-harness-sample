@@ -35,17 +35,8 @@ jobs:
       - name: Run Claude Code
         id: claude
         uses: anthropics/claude-code-action@v1
-        env:
-          GH_TOKEN: ${{ github.token }}
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-
           additional_permissions: |
             actions: read
-
-          prompt: |
-            ユーザーからIssueで実装依頼を受けた場合は、変更をコミットしてブランチへpushした後、可能であれば gh pr create を使って実際にPull Requestを作成してください。
-            PR作成リンクを提示するだけで完了にしないでください。
-
-          claude_args: |
-            --allowedTools Bash(git add:*),Bash(git commit:*),Bash(/home/runner/work/_actions/anthropics/claude-code-action/v1/scripts/git-push.sh:*),Bash(git rm:*),Bash(gh pr create:*)
+          claude_args: '--allowed-tools Bash(gh pr *) Bash(git *)'
