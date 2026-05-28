@@ -1,0 +1,106 @@
+name: Claude Code実装依頼
+description: Claude Codeに実装を依頼する際のテンプレート
+title: "[実装依頼] "
+labels: ["claude-code"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Claude Code実装依頼フォーム
+        このフォームを使用して、Claude Codeへの実装依頼情報をまとめてください。
+        スマートフォンからでも簡単に依頼できるように設計されています。
+
+  - type: textarea
+    id: purpose
+    attributes:
+      label: 実装の目的・概要
+      description: 何を実装したいのか、その背景や目的を記述してください
+      placeholder: "例: ユーザー認証機能を追加したい"
+    validations:
+      required: true
+
+  - type: textarea
+    id: requirements
+    attributes:
+      label: 実装要件
+      description: 実装に必要な要件や仕様を記述してください（複数行対応）
+      placeholder: |
+        - 新しいログイン画面を追加
+        - Google認証に対応
+        - パスワードバリデーションを実装
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: 完了条件
+      description: 実装完了の判定基準を記述してください
+      placeholder: |
+        - ユーザーがメールアドレスでログインできる
+        - バリデーションエラーメッセージが表示される
+        - テストが全て通る
+    validations:
+      required: false
+
+  - type: textarea
+    id: technical_notes
+    attributes:
+      label: 技術的な注意事項・制約
+      description: 技術的な制約や特に注意してほしい点を記述してください
+      placeholder: |
+        - 既存の認証システムとの互換性を保つ必要がある
+        - レガシーブラウザのサポートは不要
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: その他の情報
+      description: 実装に役立つ関連リンク、参考資料、追加情報があれば記述してください
+      placeholder: |
+        - 参考: https://example.com
+        - 関連Issue: #10
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 優先度
+      description: この実装の優先度を選択してください
+      options:
+        - "低"
+        - "中"
+        - "高"
+      default: 1
+    validations:
+      required: false
+
+  - type: dropdown
+    id: effort
+    attributes:
+      label: 推定作業量
+      description: この実装にどの程度の時間がかかると予想されるか選択してください
+      options:
+        - "小（15分未満）"
+        - "中（15分～1時間）"
+        - "大（1時間以上）"
+      default: 1
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: チェックリスト
+      description: 必要な確認事項にチェックを入れてください
+      options:
+        - label: 既存のIssueやPRで同じ内容が報告されていないことを確認した
+          required: false
+        - label: 実装に必要な情報は記述した
+          required: false
+        - label: テストケースを考慮している
+          required: false
