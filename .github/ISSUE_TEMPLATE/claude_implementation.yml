@@ -1,0 +1,64 @@
+name: Claude Code実装依頼
+description: Claude Codeに実装を依頼するためのフォーム
+title: "[Claude] "
+labels: ["claude-code"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Claude Codeに実装を依頼する際に、このフォームを使用してください。
+        必要な情報を記入することで、Claude Codeへの依頼がスムーズになります。
+
+  - type: textarea
+    id: implementation-details
+    attributes:
+      label: 実装内容
+      description: 実装してほしい内容を詳しく説明してください。
+      placeholder: |
+        例えば：
+        - 〇〇機能を追加してほしい
+        - 〇〇バグを修正してほしい
+        - 〇〇をリファクタリングしてほしい
+      value: ""
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: 期待される動作
+      description: 実装後に期待される動作を説明してください。
+      placeholder: |
+        例えば：
+        - ユーザーが〇〇をクリックすると、〇〇が表示される
+        - コマンド実行後に〇〇というメッセージが出力される
+      value: ""
+    validations:
+      required: true
+
+  - type: textarea
+    id: test-method
+    attributes:
+      label: テスト方法（オプション）
+      description: 実装の確認方法やテスト方法を説明してください。
+      placeholder: |
+        例えば：
+        - npm test で全テストが通ること
+        - ブラウザで〇〇ページを開いて、〇〇を確認
+      value: ""
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: 補足情報（オプション）
+      description: その他の参考資料や、実装に関する補足情報があれば記入してください。
+      placeholder: |
+        例えば：
+        - 参考になりそうなドキュメントのURL
+        - 関連するファイルやコンポーネント
+        - その他の制約や条件
+      value: ""
+    validations:
+      required: false
