@@ -1,0 +1,68 @@
+name: Claude実装依頼
+description: Claude Codeで実装してほしい内容を報告する
+title: "[Claude実装] "
+labels: ["Claude実装依頼"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Claude実装依頼フォーム
+
+        スマホからでも実装依頼しやすいように、フォーム化しました。
+        以下の項目を埋めていただき、Claude Codeで対応させてください。
+
+  - type: textarea
+    id: implementation_content
+    attributes:
+      label: "実装内容"
+      description: "何を実装してほしいのか、簡潔に説明してください"
+      placeholder: |
+        例）
+        - 新機能を追加する
+        - バグを修正する
+        - リファクタリングを行う
+      validations:
+        required: true
+
+  - type: textarea
+    id: detailed_description
+    attributes:
+      label: "詳細説明"
+      description: "実装内容の詳細を説明してください（任意）"
+      placeholder: |
+        例）
+        - どのファイルを変更するのか
+        - なぜこの実装が必要か
+        - 背景となるコンテキスト
+
+  - type: textarea
+    id: expected_output
+    attributes:
+      label: "期待される動作/成果物"
+      description: "実装後の期待される動作や、どのような成果物が得られるか説明してください（任意）"
+      placeholder: |
+        例）
+        - 新しいコマンドが使えるようになる
+        - エラーが表示されなくなる
+        - パフォーマンスが改善される
+
+  - type: textarea
+    id: additional_info
+    attributes:
+      label: "追加情報"
+      description: "参考になるリンクやコード例など、その他の情報があれば記載してください（任意）"
+      placeholder: |
+        例）
+        - 参考にするドキュメントのリンク
+        - 関連するIssueやPR
+        - コード例
+
+  - type: checkboxes
+    id: acknowledgement
+    attributes:
+      label: "確認事項"
+      options:
+        - label: "実装内容が明確に説明されている"
+          required: true
+        - label: "類似のIssueがないことを確認した"
+          required: false
