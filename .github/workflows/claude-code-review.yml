@@ -48,3 +48,15 @@ jobs:
             - テストの十分性
 
             レビューコメントは日本語で記述してください。
+
+      - name: Post review result as PR comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const reviewResult = `${{ steps.claude-review.outputs.result }}`;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: reviewResult
+            });
