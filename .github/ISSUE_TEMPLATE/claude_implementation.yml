@@ -1,0 +1,80 @@
+name: Claude Code実装依頼
+description: Claude Codeに実装を依頼する際のテンプレート
+title: "[Claude Code] "
+labels: [claude-implementation]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Claude Codeに実装を依頼する際、以下の項目を入力してください。
+        詳細な情報を提供いただくことで、より正確で効率的な実装が可能になります。
+
+  - type: textarea
+    id: background
+    attributes:
+      label: 目的・背景
+      description: |
+        この実装が必要な目的や背景を説明してください。
+        例：ユーザーがスマホからより簡単に〇〇できるようにしたい
+      placeholder: 実装の目的を記入してください
+    validations:
+      required: true
+
+  - type: textarea
+    id: implementation_details
+    attributes:
+      label: 実装内容
+      description: |
+        実装してほしい内容を具体的に説明してください。
+        複数の要件がある場合は、箇条書きで列挙してください。
+      placeholder: |
+        - 〇〇の機能を追加する
+        - 〇〇を修正する
+        - 〇〇をリファクタリングする
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: 期待される動作
+      description: |
+        実装後、どのような動作になるべきかを説明してください。
+      placeholder: 実装後の期待される動作を記入してください
+
+  - type: textarea
+    id: test_method
+    attributes:
+      label: テスト方法
+      description: |
+        実装が正しく動作することを確認するテスト方法を説明してください。
+      placeholder: テスト方法を記入してください
+
+  - type: textarea
+    id: reference
+    attributes:
+      label: 参考情報
+      description: |
+        参考になるドキュメント、関連するコード、過去のIssueなどを記入してください。
+      placeholder: |
+        - 関連するファイル：xxx.ts
+        - 参考Issue：#123
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 優先度
+      description: この実装の優先度を選択してください
+      options:
+        - P0（今すぐ対応が必要）
+        - P1（早めの対応を希望）
+        - P2（通常の優先度）
+        - P3（余裕があれば対応）
+
+  - type: textarea
+    id: additional_notes
+    attributes:
+      label: その他の備考
+      description: |
+        その他、実装者に知っておいてほしい情報があれば記入してください。
+      placeholder: 追加の備考があれば記入してください
